@@ -1,0 +1,14 @@
+[Unit]
+Description=Starts VLC stream on boot
+BindsTo=sys-subsystem-net-devices-wlan0.device
+After=sys-subsystem-net-devices-wlan0.device
+
+[Service]
+Type=simple
+User=pi
+ExecStart=/bin/sh /home/pi/Desktop/rtspStream.sh
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=graphical.target
